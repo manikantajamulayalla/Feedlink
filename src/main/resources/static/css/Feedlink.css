@@ -1,0 +1,132 @@
+.navbar{
+    background-color: black;
+}
+body{
+    background-color: bisque;
+    height: 100vh;
+}
+.navbar-brand {
+    color: white ;
+  }
+.body-class{
+    background-color: bisque;
+}
+.nav-link{
+    text-decoration: none;
+    color: darkorange;
+    font-size: 18px;
+    margin-left: 35%;
+}
+.nav-item{
+    background-color: aliceblue;
+    /* width: 160px; */
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.nav-item:hover{
+    background-color: gold;
+}
+
+.active-page{
+    background-color: gold;
+}
+.btn-success{
+    background-color: darkorange;
+    color: black;
+}
+.btn-success a{
+    text-decoration: none;
+    color: black;
+}
+.btn-success:hover{
+    background-color: darkgray;
+    color: black;
+}
+.active-page{
+    color: darkorange;
+}
+.navbar-toggler{
+    background-color: aliceblue;
+    color: black;
+    border-radius: 40px;
+
+}
+.navbar-toggler-icon{
+    background-color:bisque;
+    border-radius: 10px;
+}
+.firstimg{
+    /* padding-bottom: 5%; */
+    padding-top: 5%;
+}
+.firstimg img{
+    /* border-radius: 20px; */
+    /* width: 100%;height: 10%; */
+    height: 100vh;
+    width: 100%;
+    /* object-fit: cover; */
+}
+.link-buttons{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content:space-around;
+}
+.donatelink{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    background-color: orange;
+    width: 30%;
+    border-radius: 10px;
+    padding: 10px;
+}
+.donatelink a{
+    text-decoration: none;
+    color: black;
+}
+
+.secoundimg{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.secoundimg div img{
+    width: 50%;
+}
+.secimg{
+    /* border: solid black 1px; */
+    /* border-radius: 10px; */
+}
+.secimg div img{
+    border-radius: 20px;
+    border: solid block 5px;
+
+}
+.quotes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-family: ; */
+    font-family: "Edu AU VIC WA NT Guides", cursive;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  /* font-style: normal; */
+}
+
+.img2 img{
+    box-shadow: 0 10px 10px orange;
+}
+.img2 img:hover{
+    transform: scale(1.1);
+      /* box-shadow: 5px orange; */
+      box-shadow: 0 10px 10px orange;
+}
+.qcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donor Dashboard - FeedLink</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/Feedlink.css" />
+  <style></style>
+</head>
+
+<body>
+  <nav class="navbar fixed-top mb-5">
+    <div class="container-fluid">
+      <h3 class="navbar-brand" style="font-size: 30px; color: aliceblue">
+        <img src="feedlinklogo.jpeg" alt="" width="40" style="border-radius: 5px" />FeedLink
+      </h3>
+      <div style="display: flex">
+        <!-- <h5  style="color: aliceblue; margin-top: 10px; margin-right: 10px;">Hello,mani</h5> -->
+        <form class="d-flex mt-2 mb-2" role="search">
+          <button class="btn btn-success me-2" type="submit">
+            <a href="login.html">Login/SignUp</a>
+          </button>
+          <input class="form-control me-2" type="search" placeholder="Enter Location" aria-label="Search" />
+          <button class="btn btn-success me-2" type="submit">Search</button>
+        </form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+          aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+        aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+            <img src="feedlinklogo.jpeg" alt="" width="40" style="border-radius: 5px" />FeedLink
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item nav-css ">
+              <a class="nav-link " aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item nav-css active-page">
+              <a class="nav-link active" href="donor.html">Add Donation</a>
+            </li>
+            <li class="nav-item nav-css">
+              <a class="nav-link" href="viewdonation.html">Donations</a>
+            </li>
+            <li class="nav-item nav-css">
+              <a class="nav-link" href="recipient.html">Add Recipient</a>
+            </li>
+            <li class="nav-item nav-css">
+              <a class="nav-link" href="viewrecipients.html">Recipients</a>
+            </li>
+            <li class="nav-item nav-css">
+              <a class="nav-link" href="feedback.html">Feedback</a>
+            </li>
+            <li class="nav-item nav-css">
+              <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item nav-css">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container ">
+    <h2 class="mb-4 text-center">Donor Dashboard</h2>
+
+    <div class="form-section">
+      <h4>Enter Donor Details</h4>
+      <form id="donorForm">
+        <div class="form-group">
+          <label for="donorName">Donor Name</label>
+          <input type="text" class="form-control" id="donorName" placeholder="Enter donor name" required />
+        </div>
+        <div class="form-group">
+          <label for="mobileNo">Mobile Number</label>
+          <input type="tel" class="form-control" id="mobileNo" placeholder="Enter mobile number" required />
+        </div>
+        <div class="form-group">
+          <label for="foodDetails">Food Details</label>
+          <input type="text" class="form-control" id="foodDetails" placeholder="Enter food details" required />
+        </div>
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" class="form-control" id="location" placeholder="Enter location" required />
+        </div>
+        <div class="form-group">
+          <label for="donationDate">Donation Date</label>
+          <input type="date" class="form-control" id="donationDate" required />
+        </div>
+        <div class="form-group">
+          <label for="expireDate">Expiration Date</label>
+          <input type="date" class="form-control" id="expireDate" required />
+        </div>
+        <div class="form-group">
+          <label for="imageUrl">Upload Image</label>
+          <input type="file" class="form-control" id="imageUrl" accept="image/*" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3 ">
+    <p>© 2024 FeedLink - All Rights Reserved</p>
+  </footer>
+</body>
+<script>
+  document.getElementById("donorForm").addEventListener("submit", async function (e) {
+    e.preventDefault(); // Prevent form from submitting the traditional way
+
+    // Collect form data
+    const donorName = document.getElementById("donorName").value;
+    const mobileNo = document.getElementById("mobileNo").value;
+    const foodDetails = document.getElementById("foodDetails").value;
+    const location = document.getElementById("location").value;
+    const donationDate = document.getElementById("donationDate").value;
+    const expireDate = document.getElementById("expireDate").value;
+    const imageFile = document.getElementById("imageUrl").files[0]; // Handle file separately
+
+    let imageUrl = "";
+
+    // Upload image to Cloudinary
+    if (imageFile) {
+        const formData = new FormData();
+        formData.append("file", imageFile);
+        formData.append("upload_preset", "miniproject"); // Replace with your Cloudinary upload preset
+
+        try {
+            const cloudinaryResponse = await fetch("https://api.cloudinary.com/v1_1/dikhfh7nw/image/upload", {
+                method: "POST",
+                body: formData,
+            });
+
+            if (cloudinaryResponse.ok) {
+                const data = await cloudinaryResponse.json();
+                imageUrl = data.secure_url; // Get the URL of the uploaded image
+            } else {
+                alert("Failed to upload image.");
+                return; // Stop form submission if image upload fails
+            }
+        } catch (error) {
+            console.error("Error uploading image to Cloudinary:", error);
+            alert("Error occurred while uploading image.");
+            return;
+        }
+    }
+
+    // Prepare the donation object
+    const donation = {
+        donorName: donorName,
+        mobileNo: mobileNo,
+        foodDetails: foodDetails,
+        location: location,
+        donationDate: donationDate,
+        expireDate: expireDate,
+        imageUrl: imageUrl, // Add the Cloudinary URL
+    };
+
+    // Send data to the backend
+    try {
+        const response = await fetch("http://localhost:8088/donor/addDonation", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(donation), // Sending the donation data in JSON format
+        });
+
+        if (response.ok) {
+            alert("Donation added successfully!");
+        } else {
+            alert("Failed to add donation.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error occurred while adding donation.");
+    }
+});
+
+<!--  document.getElementById("donorForm").addEventListener("submit", async function (e) {-->
+<!--    e.preventDefault(); // Prevent form from submitting the traditional way-->
+
+<!--    // Collect form data-->
+<!--    const donorName = document.getElementById("donorName").value;-->
+<!--    const mobileNo = document.getElementById("mobileNo").value;-->
+<!--    const foodDetails = document.getElementById("foodDetails").value;-->
+<!--    const location = document.getElementById("location").value;-->
+<!--    const donationDate = document.getElementById("donationDate").value;-->
+<!--    const expireDate = document.getElementById("expireDate").value;-->
+<!--    const imageUrl = document.getElementById("imageUrl").files[0]; // Handle file separately if needed-->
+
+<!--    // Prepare the donation object-->
+<!--    const donation = {-->
+<!--        donorName: donorName,-->
+<!--        mobileNo: mobileNo,-->
+<!--        foodDetails: foodDetails,-->
+<!--        location: location,-->
+<!--        donationDate: donationDate,-->
+<!--        expireDate: expireDate,-->
+<!--        imageUrl: imageUrl ? imageUrl.name : "" // Handle file upload separately-->
+<!--    };-->
+
+<!--    // Send data to the backend-->
+<!--    try {-->
+<!--        const response = await fetch("http://localhost:8088/donor/addDonation", {-->
+<!--            method: "POST",-->
+<!--            headers: { "Content-Type": "application/json" },-->
+<!--            body: JSON.stringify(donation), // Sending the donation data in JSON format-->
+<!--        });-->
+
+<!--        if (response.ok) {-->
+<!--            alert("Donation added successfully!");-->
+<!--        } else {-->
+<!--            alert("Failed to add donation.");-->
+<!--        }-->
+<!--    } catch (error) {-->
+<!--        console.error("Error:", error);-->
+<!--        alert("Error occurred while adding donation.");-->
+<!--    }-->
+<!--});-->
+</script>
+<style>
+  .navbar {
+    background-color: black;
+  }
+
+  body {
+    background-color: bisque;
+    height: 100vh;
+  }
+
+  .navbar-brand {
+    color: white;
+  }
+
+  .body-class {
+    background-color: bisque;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: darkorange;
+    font-size: 18px;
+    margin-left: 35%;
+  }
+
+  .nav-item {
+    background-color: aliceblue;
+    /* width: 160px; */
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
+  .nav-item:hover {
+    background-color: gold;
+  }
+
+  .active-page {
+    background-color: gold;
+  }
+
+  .btn-success {
+    background-color: darkorange;
+    color: black;
+  }
+
+  .btn-success a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .btn-success:hover {
+    background-color: darkgray;
+    color: black;
+  }
+
+  .active-page {
+    color: darkorange;
+  }
+
+  .navbar-toggler {
+    background-color: aliceblue;
+    color: black;
+    border-radius: 40px;
+  }
+
+  .navbar-toggler-icon {
+    background-color: bisque;
+    border-radius: 10px;
+  }
+
+  body {
+    background-color: black;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 10px;
+    /* Rounded corners */
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    /* Ensure the image covers the entire area */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .container {
+    margin-top: 80px;
+    background-color: bisque;
+    border-radius: 20px;
+  }
+
+  .form-section {
+    margin-bottom: 40px;
+  }
+
+  /* .form-control{
+            width: 60%;
+        } */
+  .text-center {
+    /* margin-left: 100px; */
+    color: darkorange;
+  }
+
+  .btn-primary {
+    background-color: darkorange;
+  }
+
+  .btn-primary:hover {
+    background-color: darkgray;
+  }
+</style>
+
+</html>
