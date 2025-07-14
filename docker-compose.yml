@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: feedlink-db
+    environment:
+      POSTGRES_DB: FeedLink
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Mani@630572
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  backend:
+    build: .
+    container_name: feedlink-app
+    ports:
+      - "8088:8088"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/FeedLink
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Mani@630572
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+      SPRING_SECURITY_ENABLED: "true"
+      SPRING_APPLICATION_NAME: MiniProject
+      SERVER_PORT: 8088
+      CLOUDINARY_URL: cloudinary://477538658229229:qgUNDrc2hHBEz1o1RQLILI2FF-0@dikhfh7nw
+      CLOUDINARY_CLOUD_NAME: dikhfh7nw
+      CLOUDINARY_API_KEY: 477538658229229
+      CLOUDINARY_API_SECRET: qgUNDrc2hHBEz1o1RQLILI2FF-0
+    restart: always
+
+volumes:
+  db_data:

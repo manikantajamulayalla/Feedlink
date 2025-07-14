@@ -16,11 +16,7 @@ public class RecipientController {
     @Autowired
     private RecipientService recipientService;
 
-//    @PostMapping("/addRecipient")
-//    public ResponseEntity<String> addRecipient(@RequestBody Recipient recipient) {
-//        recipientService.saveRecipient(recipient);
-//        return ResponseEntity.ok("Recipient added successfully");
-//    }
+
 
     @GetMapping("/recipients/all")
     public ResponseEntity<List<Recipient>> getAllRecipients() {
